@@ -1,9 +1,5 @@
-# VERABOT
+# VeraAI
 
-This project is a demo full stack project. 
+A web app that converts number in words to digit. 
 
-Featured Tech
-- React
-- Express
-- Node
-- Bulma
+Made with React, Express, Node, and Bulma CSS,
