@@ -4,7 +4,6 @@ import services from "./services/veraAI";
 
 import "./App.css";
 
-
 // that's it...
 // the simple stuff can reside in the backend... we just fetch it...
 // nice and easy...
@@ -29,16 +28,18 @@ function App() {
 
   const handleChange = (event) => {
     setInputVal(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // make request to the backend...
     setLoading(true);
 
-    services.computeVal({
-      sentence: inputVal
-    }).then(e => {
+    services
+    .computeVal({
+      sentence: inputVal,
+    })
+    .then((e) => {
       // console.log(e); // makes sense?
       let val = e.val;
       if (val) {
@@ -54,11 +55,11 @@ function App() {
         setInputVal("");
         setLoading(false);
       }
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    services.getGreetings().then(e => {
+    services.getGreetings().then((e) => {
       // set greetings to one sha....
       setBaseString(e[Math.floor(Math.random() * e.length)]);
     });
@@ -71,12 +72,12 @@ function App() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            className={`input is-large ${loading ? "is-loading" : ""}`}
+            className={`input is-large`}
             placeholder="one hundred and five"
             value={inputVal}
             onChange={handleChange}
           />
-          <button className="button is-warning">Convert</button>
+          <button className={`button is-warning ${loading ? "is-loading" : ""}`}>Convert</button>
         </form>
       </div>
     </main>
