@@ -1,0 +1,6 @@
+POST http://localhost:3001/parse
+Content-Type: application/json
+
+{
+    "sentence": "ninety-nine"
+}
