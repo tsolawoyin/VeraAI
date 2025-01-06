@@ -7,6 +7,10 @@ import "./App.css";
 // that's it...
 // the simple stuff can reside in the backend... we just fetch it...
 // nice and easy...
+const greetingsArr = [
+  "Hi, I'm VeraAI. Enter any number in words and I will magically turn it into digits.",
+  "Hi. I'm VeraAI. I'm here to help you convert words to digits"
+]
 
 function App() {
   // now let's try to get data from backend
@@ -59,10 +63,7 @@ function App() {
   };
 
   useEffect(() => {
-    services.getGreetings().then((e) => {
-      // set greetings to one sha....
-      setBaseString(e[Math.floor(Math.random() * e.length)]);
-    });
+    setBaseString(greetingsArr[Math.floor(Math.random() * greetingsArr.length)])
   }, []);
 
   return (

@@ -3,11 +3,6 @@ import axios from "axios";
 const baseUrl = "https://veraai.onrender.com"
 // this is wonderful.....
 
-const getGreetings = async () => {
-    let greetings = await axios.get(baseUrl); // nice and easy
-    return greetings.data; // it's not a method tho...
-}
-
 const computeVal = async (data) => {
     let val = await axios.post(`${baseUrl}/parse`, data); // normally...
     if (val.status == 200) {
@@ -18,6 +13,5 @@ const computeVal = async (data) => {
 }
 
 export default {
-    getGreetings,
     computeVal
 }
